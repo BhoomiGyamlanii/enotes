@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/enotes/static/css/main.c900c18d.css",
+    "main.js": "/enotes/static/js/main.108844c8.js",
+    "index.html": "/enotes/index.html",
+    "main.c900c18d.css.map": "/enotes/static/css/main.c900c18d.css.map",
+    "main.108844c8.js.map": "/enotes/static/js/main.108844c8.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c900c18d.css",
+    "static/js/main.108844c8.js"
+  ]
+}
