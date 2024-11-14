@@ -1,7 +1,6 @@
 const express = require("express");
 const cors = require("cors"); 
 const User = require("../models/User");
-const router = express.Router();
 const { body, validationResult } = require("express-validator");
 const bcrypt = require("bcryptjs");
 var jwt = require("jsonwebtoken");
@@ -13,6 +12,8 @@ const PORT = 5001;
 
 app.use(cors());
 app.use(express.json())
+
+const router = express.Router();
 
 //ROUTE 1: CREATE USER
 router.post(
@@ -31,7 +32,7 @@ router.post(
 
     //if the user with similar email exists already
     try {
-      let user = await User.findOne({ success, email: req.body.email });
+      let user = await User.findOne({ email: req.body.email });
       if (user) {
         return res
           .status(400)
