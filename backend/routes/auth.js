@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require("cors"); 
 const User = require("../models/User");
 const router = express.Router();
 const { body, validationResult } = require("express-validator");
@@ -7,6 +8,11 @@ var jwt = require("jsonwebtoken");
 const fetchUser = require("../middleware/fetchUser");
 
 const JWT_SECRET = "Bhoomiiscreatingaapp";
+const app = express();
+const PORT = 5001;
+
+app.use(cors());
+app.use(express.json())
 
 //ROUTE 1: CREATE USER
 router.post(
@@ -120,4 +126,11 @@ router.post("/getuser", fetchUser, async (req, res) => {
     res.status(500).send("Internal Server Error");
   }
 });
+// Use the routes and start the server
+app.use("/api/auth", router);
+
+app.listen(PORT, () => {
+  console.log(`Server running on http://localhost:${PORT}`);
+});
+
 module.exports = router;
