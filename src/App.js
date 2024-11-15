@@ -9,6 +9,7 @@ import EditNoteModal from "./components/EditNoteModal";
 import { useState } from "react";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
+import Enotes from './components/Enotes'; 
 
 function App() {
   const [alert, setAlert] = useState(null);
@@ -50,12 +51,13 @@ function App() {
           <div className="container">
             <Routes>
               <Route
-                exact
+               exact
                 path="/"
                 element={
                   <Home onEditNote={handleEditNote} showAlert={showAlert} />
                 }
               />
+               <Route path="/enotes" element={<Enotes />} />
               <Route exact path="/about" element={<About />} />
               <Route
                 exact
