@@ -2,7 +2,7 @@ import NoteContext from "./noteContext";
 import { useState, useEffect } from "react";
 
 const NoteState = (props) => {
-  const host = "http://localhost:5004";
+  const host = "http://localhost:5005";
   const [notes, setNotes] = useState([]);
 
   // Get all Notes
@@ -104,11 +104,6 @@ const NoteState = (props) => {
         body: JSON.stringify({ title, description, tag }),
       });
 
-      if (!response.ok) {
-        const errorData = await response.json();
-        console.error("Update failed:", errorData);
-        return;
-      }
       if (!response.ok) {
         const errorData = await response.json();
         console.error("Update failed:", errorData);
